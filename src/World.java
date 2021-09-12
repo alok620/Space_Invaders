@@ -79,6 +79,7 @@ public class World  extends JPanel implements Runnable, MouseListener, ActionLis
 		Font f = new Font("serif", Font.PLAIN, 18);
 		g.fillRect(0, 0, d.width, d.height);
 		g.drawImage(back, 0, 0, this);
+		g.setColor(Color.RED);
 		if(won)
 		{
 			g.setFont(f);;
@@ -104,8 +105,8 @@ public class World  extends JPanel implements Runnable, MouseListener, ActionLis
 			return;
 		}
 		g.setColor(Color.RED);
-		//g.fillRect(p.getX(), p.getY(), BOARD_WIDTH/20, BOARD_HEIGHT/25);
-		g.drawImage(p.getImage(), p.getX(),p.getY(), this);
+		g.fillRect(p.getX(), p.getY(), BOARD_WIDTH/20, BOARD_HEIGHT/25);
+		//g.drawImage(p.getImage(), p.getX(),p.getY(), this);
 		if(p.getMoveRight() == true)
 		{
 			if(p.getX() < d.width - 69)
@@ -119,8 +120,8 @@ public class World  extends JPanel implements Runnable, MouseListener, ActionLis
 		g.setColor(Color.GREEN);
 		for(int i = 0; i < a.size(); i++)
 		{
-			g.drawImage(a.get(i).getImage(), a.get(i).getX(), a.get(i).getY(), this);
-			//g.fillRect(a.get(i).getX(), a.get(i).getY(), BOARD_WIDTH/16, BOARD_HEIGHT/16);
+			//g.drawImage(a.get(i).getImage(), a.get(i).getX(), a.get(i).getY(), this);
+			g.fillRect(a.get(i).getX(), a.get(i).getY(), BOARD_WIDTH/16, BOARD_HEIGHT/16);
 		}
 		g.setColor(Color.DARK_GRAY);
 		b = p.getBuls();
@@ -130,8 +131,8 @@ public class World  extends JPanel implements Runnable, MouseListener, ActionLis
 			for(int j = 0; j < b.size(); j++)
 			{
 				b.get(j).move(); 
-				//g.fillRect(b.get(j).getX(), b.get(j).getY(), b.get(j).getWidth(), b.get(j).getHeight());
-				g.drawImage(b.get(j).getImage(), b.get(j).getX(), b.get(j).getY(), this);
+				g.fillRect(b.get(j).getX(), b.get(j).getY(), b.get(j).getWidth(), b.get(j).getHeight());
+				//g.drawImage(b.get(j).getImage(), b.get(j).getX(), b.get(j).getY(), this);
 				Rectangle hitBox = new Rectangle(b.get(j).getX(), b.get(j).getY(), b.get(j).getWidth(), b.get(j).getHeight());
 				for(int i = 0; i < boxes.size(); i++)
 				{
